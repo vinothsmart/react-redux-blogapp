@@ -1,10 +1,11 @@
 import "./styles/App.scss";
 import Home from "./components/pages/Home";
+import Navbar from "./components/elements/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Navbar />
       <Home />
     </div>
   );
