@@ -11,7 +11,7 @@ import UpdatePost from "./components/Posts/UpdatePost";
 function App() {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename="/">
         <div className="App">
           <Navbar />
           <Switch>
