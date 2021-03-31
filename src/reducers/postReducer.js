@@ -3,6 +3,7 @@ import {
   CREATE_POST,
   UPDATE_POST,
   DELETE_POST,
+  GET_POSTS,
 } from "../actions/types";
 
 const initialState = {
@@ -11,6 +12,11 @@ const initialState = {
 };
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    case GET_POSTS:
+      return {
+        ...state,
+        posts: payload,
+      };
     case CREATE_POST:
       console.log(payload);
       return {
