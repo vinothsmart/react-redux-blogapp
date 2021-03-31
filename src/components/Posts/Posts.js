@@ -1,7 +1,13 @@
 import PostCard from "./PostCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getPosts } from "../../actions/postAction";
 
 const Posts = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPosts());
+  }, []);
   const posts = useSelector((state) => state.post.posts);
 
   return (
