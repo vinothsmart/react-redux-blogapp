@@ -19,10 +19,15 @@ export const getPosts = () => async (dispatch) => {
 };
 
 // get a post
-export const getPost = (id) => ({
-  type: GET_POST,
-  payload: id,
-});
+export const getPost = (id) => async (dispatch) => {
+  const result = await axios.get(
+    `https://jsonplaceholder.typicode.com/posts/${id}`
+  );
+  dispatch({
+    type: GET_POST,
+    payload: result.data,
+  });
+};
 
 // create a post
 export const createPost = (post) => async (dispatch) => {

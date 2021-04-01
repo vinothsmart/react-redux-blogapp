@@ -26,7 +26,8 @@ export default (state = initialState, { type, payload }) => {
     case GET_POST:
       return {
         ...state,
-        post: state.posts.find((postItem) => postItem.id == payload),
+        post: payload,
+        // post: state.posts.find((postItem) => postItem.id == payload),
       };
     case UPDATE_POST:
       return {
