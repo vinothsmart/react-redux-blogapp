@@ -49,7 +49,10 @@ export const updatePost = (post) => async (dispatch) => {
 };
 
 // delete a post
-export const deletePost = (id) => ({
-  type: DELETE_POST,
-  payload: id,
-});
+export const deletePost = (id) => async (dispatch) => {
+  await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  dispatch({
+    type: DELETE_POST,
+    payload: id,
+  });
+};
