@@ -37,10 +37,16 @@ export const createPost = (post) => async (dispatch) => {
 };
 
 // update a post
-export const updatePost = (post) => ({
-  type: UPDATE_POST,
-  payload: post,
-});
+export const updatePost = (post) => async (dispatch) => {
+  const result = await axios.put(
+    `https://jsonplaceholder.typicode.com/posts/${post.id}`,
+    post
+  );
+  dispatch({
+    type: UPDATE_POST,
+    payload: result.data,
+  });
+};
 
 // delete a post
 export const deletePost = (id) => ({
